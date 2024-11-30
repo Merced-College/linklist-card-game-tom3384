@@ -2,14 +2,12 @@
 // November 29, 2024
 // Linked List Card Game
 
-// Maybe make a 2 player game where it adds up the total value of the player's hand by their number value, and then the higher total value wins. 
+// Added code for it to account for a second player's hand. 
+// Maybe make a 2 player game where it adds up the total value of both of the players' hand by their total number value, and then the higher total value wins. 
+// Also has the user guess which of the two players will win, and checks if their prediction was right. 
 
 // Seems like the deck is still not shuffled yet, so might need to add that. 
 // But an array is probably easier to shuffle compared to a linked list. We might have to convert the linked list to an array or list, then shuffle it, then convert it back to a linked list.
-
-// Maybe we can also add code for it to account for multiple players. 
-
-
 
 
 //package linkedLists;
@@ -66,7 +64,10 @@ public class CardGame {
         System.out.println("Cards loaded:");
         cardList.displayList();
 
-
+        Scanner userInputScanner = new Scanner(System.in); // Creates a scanner object
+        System.out.println("Two players are given 5 cards each, and are battling it out to see who has the higher total card hand value.");
+        System.out.println("Enter your guess on which of the two players will win (and have a higher card hand value): (Please enter '1' or '2')");
+        int userGuess = userInputScanner.nextInt();
 		
         // The player's hand, an array of objects
 		Card[] playerHand = new Card[5];
@@ -108,13 +109,26 @@ public class CardGame {
 
         System.out.println();
 
+        String winner; 
         if (totalValuePlayer1 > totalValuePlayer2) {
+            winner = "Player 1";           
             System.out.println("Player 1 wins and is an incredible card game player.");
         } else if (totalValuePlayer2 > totalValuePlayer1) {
-            System.out.println("Player 2 wins and is the spectacular victor."); 
+            winner = "Player 2";
+            System.out.println("Player 2 wins and is the victor!"); 
         } else {
+            winner = "Tie";
             System.out.println("It's a tie, what a rare occasion.");
         }
+
+        if ((userGuess == 1 && winner.equals("Player 1")) || (userGuess == 2 && winner.equals("Player 2")) ) {
+            System.out.println("Your guess was correct and you predicted the winner!");
+        } else if (winner.equals("Tie")) {
+            System.out.println("It was a tie, so nobody won."); 
+        } else {
+            System.out.println("You lost! Try again!");
+        }
+
 
 
 	}//end main
