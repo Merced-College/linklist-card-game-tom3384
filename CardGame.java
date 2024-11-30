@@ -5,6 +5,7 @@
 // Maybe make a 2 player game where it adds up the total value of the player's hand by their number value, and then the higher total value wins. 
 
 // Seems like the deck is still not shuffled yet, so might need to add that. 
+// But an array is probably easier to shuffle compared to a linked list. We might have to convert the linked list to an array or list, then shuffle it, then convert it back to a linked list.
 
 // Maybe we can also add code for it to account for multiple players. 
 
@@ -64,13 +65,20 @@ public class CardGame {
         // Print the loaded cards
         System.out.println("Cards loaded:");
         cardList.displayList();
+
+
 		
         // The player's hand, an array of objects
 		Card[] playerHand = new Card[5];
-		for(int i = 0; i < playerHand.length; i++)
+        Card[] player2Hand = new Card[5];
+		for(int i = 0; i < playerHand.length; i++) {
 			playerHand[i] = cardList.getFirst();
+            player2Hand[i] = cardList.getFirst();
+        }
+            
             // The getFirst method removes cards from the start of the cardList to fill the player's hand (5 cards)
             // The getFirst method is from the LinkList.java file
+
 
         // Prints out the remaining deck 
 		System.out.println();
@@ -81,7 +89,13 @@ public class CardGame {
 		System.out.println("players hand");
 		for(int i = 0; i < playerHand.length; i++)
 			System.out.println(playerHand[i]);
-
+            
+        System.out.println();
+        // Prints out the player 2's hand
+		System.out.println("player 2's hand");
+		for(int i = 0; i < player2Hand.length; i++)
+			System.out.println(player2Hand[i]);
+            
         // Add some extra space for clarity 
         System.out.println();
 		
