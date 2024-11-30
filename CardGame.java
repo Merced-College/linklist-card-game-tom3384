@@ -2,8 +2,16 @@
 // November 29, 2024
 // Linked List Card Game
 
-//package linkedLists;
+// Maybe make a 2 player game where it adds up the total value of the player's hand by their number value, and then the higher total value wins. 
+
 // Seems like the deck is still not shuffled yet, so might need to add that. 
+
+// Maybe we can also add code for it to account for multiple players. 
+
+
+
+
+//package linkedLists;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -64,16 +72,42 @@ public class CardGame {
             // The getFirst method removes cards from the start of the cardList to fill the player's hand (5 cards)
             // The getFirst method is from the LinkList.java file
 
-        // Prints out the player's hand
-		System.out.println("players hand");
-		for(int i = 0; i < playerHand.length; i++)
-			System.out.println(playerHand[i]);
-		
         // Prints out the remaining deck 
 		System.out.println();
 		System.out.println("the deck");
 		cardList.displayList();
 
+        // Prints out the player's hand
+		System.out.println("players hand");
+		for(int i = 0; i < playerHand.length; i++)
+			System.out.println(playerHand[i]);
+
+        // Add some extra space for clarity 
+        System.out.println();
+		
+        // Grab the total value of the player's hand after adding it up.
+        int totalValue = calculateHandValue(playerHand);
+        System.out.println("The total value of the player's hand is: " + totalValue);
+
+
 	}//end main
 
-}//end class
+    // Calculate the total value of a hand, we're going to first insert the player's hand into it. (Then additional players if we add it)
+    // Takes an array of Card objects as an input (hand)
+    // Iterates through the array and grabs each card's value, then adds it to the total. 
+    private static int calculateHandValue(Card[] hand) {
+        // Initialize it, and start it off at 0
+        int total = 0;
+        // A for-each loop, used exclusively to loop through elements in an array (or other data sets)
+        // for (type variableName : arrayName)
+        for (Card card : hand) {
+            total += card.getCardValue();
+            // get the card value, and add it to the total
+        }
+
+        return total;
+    }
+
+}
+
+//end class

@@ -35,7 +35,7 @@ public class LinkList
 	public Link find(Card cardToFind)      // find link with given key
 	{                           // (assumes non-empty list)
 		Link current = first;              // start at 'first'
-		while(!current.equals(cardToFind))        // while no match,
+		while(!current.cardLink.equals(cardToFind))        // while no match,
 		{
 			if(current.next == null)        // if end of list,
 				return null;                 // didn't find it
@@ -50,9 +50,9 @@ public class LinkList
 	{                           // (assumes non-empty list)
 		Link current = first;              // search for link
 		Link previous = first;
-		while(!current.equals(cardToFind))
+		while(!current.cardLink.equals(cardToFind))
 		{
-			if(!current.equals(cardToFind))
+			if(!current.cardLink.equals(cardToFind))
 				return null;                 // didn't find it
 			else
 			{
@@ -60,7 +60,8 @@ public class LinkList
 				current = current.next;
 			}
 		}                               // found it
-		if(current.equals(cardToFind))               // if first link,
+		// Fixed bug and changed it to current.cardLink.equals, instead of current.equals
+		if(current.cardLink.equals(cardToFind))               // if first link,
 			first = first.next;             //    change first
 		else                               // otherwise,
 			previous.next = current.next;   //    bypass it
