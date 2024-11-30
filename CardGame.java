@@ -4,9 +4,11 @@
 
 // Added code for it to account for a second player's hand. 
 // Maybe make a 2 player game where it adds up the total value of both of the players' hand by their total number value, and then the higher total value wins. 
-// Also has the user guess which of the two players will win, and checks if their prediction was right. 
+// Added calculateHandValue method. 
+// Also added a scanner to accept the user input: has the user guess which of the two players will win, and checks if their prediction was right. 
 
-// Seems like the deck is still not shuffled yet, so might need to add that. 
+
+// Seems like the deck is still not shuffled yet. I will instead choose to focus on other modifications/implementations.
 // But an array is probably easier to shuffle compared to a linked list. We might have to convert the linked list to an array or list, then shuffle it, then convert it back to a linked list.
 
 
@@ -119,7 +121,7 @@ public class CardGame {
             System.out.println("Player 1 wins and is an incredible card game player.");
         } else if (totalValuePlayer2 > totalValuePlayer1) {
             winner = "Player 2";
-            System.out.println("Player 2 wins and is the victor!"); 
+            System.out.println("Player 2 wins and is the victor! He is the undefeated champion!"); 
         } else {
             winner = "Tie";
             System.out.println("It's a tie, what a rare occasion.");
