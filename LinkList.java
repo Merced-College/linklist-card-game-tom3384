@@ -4,10 +4,12 @@
 
 // With a linked list, the deck can grow or shrink as cards are added/removed. 
 
+// import java.util.LinkedList;
 
 public class LinkList
 {
 	private Link first;            // ref to first link on list
+	private int size = 52; 		   // track the size of the list for when we delete cards at the start
 
 	//-------------------------------------------------------------
 	public LinkList()              // constructor
@@ -91,6 +93,44 @@ public class LinkList
 		first = first.next;             //    change first
 		return current.cardLink;
 	}
+
+	public void deleteAtIndex(int index) {
+		// making sure the index is in bounds
+		if (index < 0 || index >= size) {
+			// Prints out an error message
+			System.out.println("Index out of bounds."); 
+			return; 
+		}
+
+		Link current = first;
+		Link previous = null; 
+
+		// If the card to delete is the first card, then: 
+		if (index == 0) {
+			first = first.next;
+		} else {
+			// Find the code at the given index to delete
+			for (int i = 0; i < index; i++) {
+				previous = current; 
+				current = current.next; 
+			}
+
+			// Bypass the current node 
+			if (previous != null) {
+				previous.next = current.next;
+			}
+		}
+		// keep track of the size of the deck as it's being deleted/whittled down
+		size--; 
+
+
+	}
+
+	public int size() {
+		return size; 
+	}
+
+
 
 }  // end class LinkList
 ////////////////////////////////////////////////////////////////

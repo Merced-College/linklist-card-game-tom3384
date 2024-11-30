@@ -7,8 +7,8 @@
 // Added calculateHandValue method. 
 // Also added a scanner to accept the user input: has the user guess which of the two players will win, and checks if their prediction was right. 
 
-
-// Seems like the deck is still not shuffled yet. I will instead choose to focus on other modifications/implementations.
+// Seems like the deck is still not shuffled yet, so I added a removeRandomCards method to remove 40 cards from the deck to act as a shuffle. 
+// 
 // But an array is probably easier to shuffle compared to a linked list. We might have to convert the linked list to an array or list, then shuffle it, then convert it back to a linked list.
 
 
@@ -22,6 +22,8 @@ import java.io.IOException;
 //import java.util.ArrayList;
 //import java.util.List;
 import java.util.Scanner;
+import java.util.Random;
+// import java.util.LinkedList;
 
 
 
@@ -62,8 +64,12 @@ public class CardGame {
             System.err.println("Error reading file: " + e.getMessage());
         }
 
-        // Print the loaded cards
-        System.out.println("Cards loaded:");
+        // Remove random cards from the deck before starting the game, to act as a sort of shuffle.
+        removeRandomCards(40); // Remove certain number of random cards
+        // cardList.remove(1);
+
+        // Print the loaded cards after removal
+        System.out.println("Cards loaded after removal:");
         cardList.displayList();
 
         // Letting the user input 1 or 2 to guess who the winner is. 
@@ -81,6 +87,7 @@ public class CardGame {
 		for(int i = 0; i < playerHand.length; i++) {
 			playerHand[i] = cardList.getFirst();
             player2Hand[i] = cardList.getFirst();
+            // 
         }
             
             // The getFirst method removes cards from the start of the cardList to fill the player's hand (5 cards)
@@ -132,7 +139,7 @@ public class CardGame {
         } else if (winner.equals("Tie")) {
             System.out.println("It was a tie, so nobody won."); 
         } else {
-            System.out.println("You lost! Try again!");
+            System.out.println("You lost! Your prediction was wrong! Try again!");
         }
 
 
@@ -153,6 +160,25 @@ public class CardGame {
         }
 
         return total;
+    }
+
+    // Method to remove random cards from the deck
+    private static void removeRandomCards(int numCardsToRemove) {
+        // Have to import the java.util.random class, like scanner 
+        Random random = new Random();
+        // int size = 0; 
+        for (int i = 0; i < numCardsToRemove; i++) {
+            // Generates a random index and remove that card at the index
+            // nextInt will choose a random number up to the number in the parenthesis, this way we can make sure we don't go out of bounds 
+            int randomIndex = random.nextInt(cardList.size()); 
+            // We could also choose 10, but it might not be a fair shuffle, since it would just remove the top 1-10 index cards 
+            // int randomIndex = random.nextInt(10); 
+            
+            cardList.deleteAtIndex(randomIndex); 
+            // cardList.remove(randomIndex);
+            // size--; 
+            System.out.println("Removed card at index: " + randomIndex);
+        }
     }
 
 }
