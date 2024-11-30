@@ -65,7 +65,7 @@ public class CardGame {
         }
 
         // Remove random cards from the deck before starting the game, to act as a sort of shuffle.
-        removeRandomCards(40); // Remove certain number of random cards
+        removeRandomCards(41); // Remove certain number of random cards
         // cardList.remove(1);
 
         // Print the loaded cards after removal
@@ -100,7 +100,7 @@ public class CardGame {
 		cardList.displayList();
 
         // Prints out the player's hand
-		System.out.println("players hand");
+		System.out.println("player 1's hand");
 		for(int i = 0; i < playerHand.length; i++)
 			System.out.println(playerHand[i]);
             
@@ -117,7 +117,7 @@ public class CardGame {
         // Grab the total value of the player's hand after adding it up.
         int totalValuePlayer1 = calculateHandValue(playerHand);
         int totalValuePlayer2 = calculateHandValue(player2Hand);
-        System.out.println("The total value of the player's hand is: " + totalValuePlayer1);
+        System.out.println("The total value of the player 1's hand is: " + totalValuePlayer1);
         System.out.println("The total value of the player 2's hand is: " + totalValuePlayer2);
 
         System.out.println();
