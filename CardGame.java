@@ -87,14 +87,14 @@ public class CardGame {
             // The getFirst method is from the LinkList.java file
 
         // Prints out the player's hand for the first three cards
-		System.out.println("player 1's hand");
+		System.out.println("player 1's hand (first three cards revealed)");
 		for(int i = 0; i < 3; i++)
 			System.out.println(playerHand[i]);
             
         System.out.println();
 
         // Prints out the player 2's hand for the first three cards
-		System.out.println("player 2's hand");
+		System.out.println("player 2's hand (first three cards revealed)");
 		for(int i = 0; i < 3; i++)
 			System.out.println(player2Hand[i]);
 
@@ -197,7 +197,7 @@ public class CardGame {
             cardList.deleteAtIndex(randomIndex); 
             // cardList.remove(randomIndex);
             // size--; 
-            System.out.println("Removed card at index: " + randomIndex);
+            // System.out.println("Removed card at index: " + randomIndex);
         }
     }
 
