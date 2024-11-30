@@ -106,6 +106,16 @@ public class CardGame {
         System.out.println("The total value of the player's hand is: " + totalValuePlayer1);
         System.out.println("The total value of the player 2's hand is: " + totalValuePlayer2);
 
+        System.out.println();
+
+        if (totalValuePlayer1 > totalValuePlayer2) {
+            System.out.println("Player 1 wins and is an incredible card game player.");
+        } else if (totalValuePlayer2 > totalValuePlayer1) {
+            System.out.println("Player 2 wins and is the spectacular victor."); 
+        } else {
+            System.out.println("It's a tie, what a rare occasion.");
+        }
+
 
 	}//end main
 
