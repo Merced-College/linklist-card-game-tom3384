@@ -13,8 +13,8 @@
 //package linkedLists;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
+// import java.io.File;
+// import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 //import java.util.ArrayList;
@@ -64,10 +64,14 @@ public class CardGame {
         System.out.println("Cards loaded:");
         cardList.displayList();
 
+        // Letting the user input 1 or 2 to guess who the winner is. 
         Scanner userInputScanner = new Scanner(System.in); // Creates a scanner object
         System.out.println("Two players are given 5 cards each, and are battling it out to see who has the higher total card hand value.");
         System.out.println("Enter your guess on which of the two players will win (and have a higher card hand value): (Please enter '1' or '2')");
+        // Takes the user's input and stores it as the userGuess, so we can use it later on to check if the user was right in their winner prediction.
         int userGuess = userInputScanner.nextInt();
+        // Closes the scanner so that it won't be let open. 
+        userInputScanner.close();
 		
         // The player's hand, an array of objects
 		Card[] playerHand = new Card[5];
