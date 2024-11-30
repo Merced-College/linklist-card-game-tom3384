@@ -1,4 +1,9 @@
+// Tom Nguyen
+// November 29, 2024
+// Linked List Card Game
+
 //package linkedLists;
+// Seems like the deck is still not shuffled yet, so might need to add that. 
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,6 +25,8 @@ public class CardGame {
 		// File name to read from
         String fileName = "cards.txt"; // Ensure the file is in the working directory or specify the full path
 
+        // The cards.txt file is read line by line, and is split into (suit, name, value, and picture) 
+        // A new object is created for each line and added to the linked list (cardList)
         // Read the file and create Card objects
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -50,14 +57,19 @@ public class CardGame {
         System.out.println("Cards loaded:");
         cardList.displayList();
 		
+        // The player's hand, an array of objects
 		Card[] playerHand = new Card[5];
 		for(int i = 0; i < playerHand.length; i++)
 			playerHand[i] = cardList.getFirst();
-		
+            // The getFirst method removes cards from the start of the cardList to fill the player's hand (5 cards)
+            // The getFirst method is from the LinkList.java file
+
+        // Prints out the player's hand
 		System.out.println("players hand");
 		for(int i = 0; i < playerHand.length; i++)
 			System.out.println(playerHand[i]);
 		
+        // Prints out the remaining deck 
 		System.out.println();
 		System.out.println("the deck");
 		cardList.displayList();

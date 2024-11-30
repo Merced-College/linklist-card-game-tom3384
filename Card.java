@@ -1,6 +1,12 @@
+// Tom Nguyen
+// November 29, 2024
+// Linked List Card Game
+
 //package cardGame;
 
+// This file has getters, setters, constructors and an equals and toString method. 
 public class Card {
+
 
     // Instance variables
     private String cardSuit;
@@ -21,6 +27,7 @@ public class Card {
     }
 
     // Constructor with all attributes
+    // Suit like heart, name like ace/three, value like 3 for three, or 11 for ace, and a picture file name. 
     public Card(String suit, String name, int value, String pic) {
         cardSuit = suit;
         cardName = name;

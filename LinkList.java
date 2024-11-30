@@ -1,3 +1,9 @@
+// Tom Nguyen
+// November 29, 2024
+// Linked List Card Game
+
+// With a linked list, the deck can grow or shrink as cards are added/removed. 
+
 
 public class LinkList
 {
@@ -7,14 +13,17 @@ public class LinkList
 	public LinkList()              // constructor
 	{
 		first = null;               // no links on list yet
+		// keeps track of the first link (head of the list)
 	}
 	//-------------------------------------------------------------
+	// Adds a card to the start of the list.
 	public void insertFirst(Card card)
 	{                           // make new link
 		Link newLink = new Link(card);
 		newLink.next = first;       // it points to old first link
 		first = newLink;            // now first points to this
 	}
+	// Adds a card to the list.
 	public void add(Card card)
 	{                           // make new link
 		Link newLink = new Link(card);
@@ -22,6 +31,7 @@ public class LinkList
 		first = newLink;            // now first points to this
 	}
 	//-------------------------------------------------------------
+	// Searches for a card in the list.
 	public Link find(Card cardToFind)      // find link with given key
 	{                           // (assumes non-empty list)
 		Link current = first;              // start at 'first'
@@ -35,6 +45,7 @@ public class LinkList
 		return current;                    // found it
 	}
 	//-------------------------------------------------------------
+	// Removes a specific card from the list.
 	public Link delete(Card cardToFind)    // delete link with given key
 	{                           // (assumes non-empty list)
 		Link current = first;              // search for link
@@ -56,6 +67,8 @@ public class LinkList
 		return current;
 	}
 	//-------------------------------------------------------------
+	// Displays all cards in the list.
+	// .displayLink is in the Link.java file, and this prints out all the cards in the list using that method. 
 	public void displayList()      // display the list
 	{
 		System.out.print("List (first-->last): ");
@@ -70,6 +83,7 @@ public class LinkList
 	//-------------------------------------------------------------
 
 	//-------------------------------------------------------------
+	// Removes and returns the card at the start of the list.
 	public Card getFirst()    // delete link with given key
 	{                           // (assumes non-empty list)
 		Link current = first;              // search for link
