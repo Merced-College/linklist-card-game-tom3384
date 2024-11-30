@@ -91,6 +91,7 @@ public class CardGame {
 			System.out.println(playerHand[i]);
             
         System.out.println();
+
         // Prints out the player 2's hand
 		System.out.println("player 2's hand");
 		for(int i = 0; i < player2Hand.length; i++)
@@ -100,8 +101,10 @@ public class CardGame {
         System.out.println();
 		
         // Grab the total value of the player's hand after adding it up.
-        int totalValue = calculateHandValue(playerHand);
-        System.out.println("The total value of the player's hand is: " + totalValue);
+        int totalValuePlayer1 = calculateHandValue(playerHand);
+        int totalValuePlayer2 = calculateHandValue(player2Hand);
+        System.out.println("The total value of the player's hand is: " + totalValuePlayer1);
+        System.out.println("The total value of the player 2's hand is: " + totalValuePlayer2);
 
 
 	}//end main
