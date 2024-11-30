@@ -72,14 +72,7 @@ public class CardGame {
         System.out.println("Cards loaded after removal:");
         cardList.displayList();
 
-        // Letting the user input 1 or 2 to guess who the winner is. 
-        Scanner userInputScanner = new Scanner(System.in); // Creates a scanner object
-        System.out.println("Two players are given 5 cards each, and are battling it out to see who has the higher total card hand value.");
-        System.out.println("Enter your guess on which of the two players will win (and have a higher card hand value): (Please enter '1' or '2')");
-        // Takes the user's input and stores it as the userGuess, so we can use it later on to check if the user was right in their winner prediction.
-        int userGuess = userInputScanner.nextInt();
-        // Closes the scanner so that it won't be let open. 
-        userInputScanner.close();
+
 		
         // The player's hand, an array of objects
 		Card[] playerHand = new Card[5];
@@ -93,11 +86,38 @@ public class CardGame {
             // The getFirst method removes cards from the start of the cardList to fill the player's hand (5 cards)
             // The getFirst method is from the LinkList.java file
 
+        // Prints out the player's hand for the first three cards
+		System.out.println("player 1's hand");
+		for(int i = 0; i < 3; i++)
+			System.out.println(playerHand[i]);
+            
+        System.out.println();
+
+        // Prints out the player 2's hand for the first three cards
+		System.out.println("player 2's hand");
+		for(int i = 0; i < 3; i++)
+			System.out.println(player2Hand[i]);
+
+        System.out.println();
+
+        // Letting the user input 1 or 2 to guess who the winner is. 
+        Scanner userInputScanner = new Scanner(System.in); // Creates a scanner object
+        System.out.println("Two players are given 5 cards each, and are battling it out to see who has the higher total card hand value.");
+        System.out.println("The first 3 cards of each players hands have been shown, they still have 2 more cards to reveal.");
+        System.out.println();
+        System.out.println("Enter your guess on which of the two players will win (and have a higher card hand value): (Please enter '1' or '2')");
+        // Takes the user's input and stores it as the userGuess, so we can use it later on to check if the user was right in their winner prediction.
+        int userGuess = userInputScanner.nextInt();
+        // Closes the scanner so that it won't be let open. 
+        userInputScanner.close();
+
 
         // Prints out the remaining deck 
 		System.out.println();
-		System.out.println("the deck");
+		System.out.println("the remaining deck: ");
 		cardList.displayList();
+
+
 
         // Prints out the player's hand
 		System.out.println("player 1's hand");
